@@ -118,5 +118,74 @@ El backend está accesible en el siguiente dominio público:
 ![ExternalApi](https://github.com/user-attachments/assets/0f9cdd0c-cafe-4d03-a911-92abf8866fa4)
 
 
+# Docker
 
+## Construir Imagen
+### Crear un archivo DockerFile en el proyecto
+
+```bash
+# Utiliza una imagen base de Eclipse Temurin JRE 17
+FROM eclipse-temurin:17-jre
+
+# Copia el archivo JAR compilado al contenedor
+COPY target/*.jar app.jar
+
+# Expone el puerto en el que la aplicación se ejecuta
+EXPOSE 8080
+
+# Comando para ejecutar la aplicación
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+```
+
+### Crear Contenedor 
+```bash
+docker build -t -t nombre-imagen:tag .
+```
+### Iniciar Contenedor
+```bash
+docker run -p 8080:8080 --name backend-container nombre-imagen:tag
+```
+
+# DockerCompose
+### Inclui un archivo Docker Compose para levantar tanto la Api como la Base de Datos 
+### El proyecto esta en mi dockerHub 
+```bash
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:4.4
+    container_name: mongodb-container
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+    volumes:
+      - mongo-data:/data/db
+
+  app:
+    image: lvergara1/pruebatecnica:v1
+    container_name: app-container
+    ports:
+      - "8080:8080"
+    environment:
+      MONGODB_URI: mongodb://admin:admin123@mongodb:27017/BaseDatos?authSource=admin
+      NASA_API_KEY: DEMO_KEY
+      NASA_API_URL: https://api.nasa.gov/planetary/apod
+      CORS_ALLOWED_ORIGINS: "*"
+      DOC_SWAGGER: http://ptb.luisvergara.dev/swagger-ui.html
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:
+    driver: bridge
+
+```
 
