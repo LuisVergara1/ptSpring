@@ -1,7 +1,8 @@
 # Prueba Tecnica Springboot
 
 ## Extras
-### De forma Personal Levante la Aplicacion para asi realizar Pruebas y un FrontEnd Realizado en React
+### Para facilitar las pruebas y la interacción con la aplicación, se han levantado tanto el backend como el frontend en un entorno accesible públicamente:
+
 ***URL Web*** : https://pt.luisvergara.dev
 
 ***URL OpenApi*** : https://ptb.luisvergara.dev/swagger-ui/index.html#/
