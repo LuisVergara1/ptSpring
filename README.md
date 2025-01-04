@@ -2,7 +2,7 @@
 
 ## Extras
 ### De forma Personal Levante la Aplicacion para asi realizar Pruebas y un FrontEnd Realizado en React
-***URL Front*** : https://pt.luisvergara.dev
+***URL Web*** : https://pt.luisvergara.dev
 
 ***URL OpenApi*** : https://ptb.luisvergara.dev/swagger-ui/index.html#/
 
