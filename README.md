@@ -1,5 +1,10 @@
 # Prueba Tecnica Springboot
 
+## Extras
+### De forma Personal Levante la Aplicacion para su realizar Pruebas y un Front pequeño para mas control
+***URL Front*** : https://pt.luisvergara.dev
+***URL OpenApi*** : https://ptb.luisvergara.dev/swagger-ui/index.html#/
+
 ## Ejecutar Aplicacion
 
 ### 1. Clonamos nuestro Repositorio 
